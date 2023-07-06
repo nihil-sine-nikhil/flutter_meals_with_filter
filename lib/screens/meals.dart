@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meals_with_filter/widgets/meal_item.dart';
 
 import '../models/meal.dart';
 
@@ -19,13 +20,7 @@ class MealsScreen extends StatelessWidget {
       ),
       body: meals.isNotEmpty
           ? ListView.builder(
-              itemBuilder: (ctx, index) => Text(
-                    meals[index].title,
-                    style: Theme.of(context)
-                        .textTheme
-                        .titleLarge!
-                        .copyWith(color: Colors.white),
-                  ),
+              itemBuilder: (ctx, index) => MealItem(meal: meals[index]),
               itemCount: meals.length)
           : const Center(
               child: Column(
